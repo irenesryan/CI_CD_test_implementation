@@ -52,7 +52,7 @@ jobs:
         npm run deploy
       env:
         user_name: 'irenesryan'
-        user_email: 'irene.ryan@users.noreply.github.com'
+        user_email: 'irene.sabrina@arkonit.se'
         github_token: ${{secrets.ACTIONS_DEPLOY_ACCESS_TOKEN}}
         repository: ${{github.repository}}
 
