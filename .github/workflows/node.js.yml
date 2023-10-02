@@ -27,14 +27,14 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
-        cache: 'yarn'
+        cache: 'npm'
 
       
     - name: Install dependencies
-      run: yarn install
+      run: npm install
 
     - name: Run the tests
-      run: yarn test -- --coverage
+      run: npm test -- --coverage
     
     - name: Upload coverage reports to Codecov
       uses: codecov/codecov-action@v3
@@ -42,17 +42,16 @@ jobs:
         CODECOV_TOKEN: ${{ secrets.CICDWORKFLOWTESTIMPLEMENTATION }}
 
     - name: Build
-      run: yarn run build --if-present
+      run: npm run build --if-present
 
     - name: Deploy
       run: |
         git config --global user.name $user_name
         git config --global user.email $user_email
         git remote set-url origin https://${github_token}@github.com/${repository}
-        yarn run deploy
+        npm run deploy
       env:
         user_name: 'irenesryan'
-        user_email: 'irene.sabrina@arkonit.se'
+        user_email: 'irene.ryan@arkonit.se'
         github_token: ${{secrets.ACTIONS_DEPLOY_ACCESS_TOKEN}}
         repository: ${{github.repository}}
-
