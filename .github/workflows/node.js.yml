@@ -55,4 +55,3 @@ jobs:
         user_email: 'irene.ryan@arkonit.se'
         github_token: ${{secrets.ACTIONS_DEPLOY_ACCESS_TOKEN}}
         repository: ${{github.repository}}
-
