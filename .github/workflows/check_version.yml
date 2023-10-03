@@ -1,0 +1,19 @@
+
+
+on: push
+name: Check package version
+jobs:
+    checkVersion:
+        name: Check package version
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+
+            #Use this github action
+            - name: Check package version
+              uses: technote-space/package-version-check-action@v1
+              with:
+                GITHUB_TOKEN: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
+                BRANCH_PREFIX: release/
+
+
